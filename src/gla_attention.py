@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from math import sqrt
 
 class GLAAttention(nn.Module):
     def __init__(self, hidden_dim=768, c=5):

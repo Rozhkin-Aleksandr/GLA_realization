@@ -1,5 +1,7 @@
-from wikidataset import WikiTextDataset
+from wikidatset import WikiTextDataset
 from transformers import GPT2Tokenizer
+from datasets import load_dataset
+from torch.utils.data import DataLoader
 
 
 def load_and_prepare_data():

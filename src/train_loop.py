@@ -17,7 +17,6 @@ def train_gla(model, train_loader):
     for epoch in range(num_epochs):
         total_loss = 0
         for batch_idx, input_ids in enumerate(train_loader):
-            print(batch_idx)
             input_ids = input_ids
     
             inputs = input_ids[:, :-1]  # Все токены, кроме последнего
@@ -37,8 +36,8 @@ def train_gla(model, train_loader):
             loss.backward()
             optimizer.step()
             scheduler.step()
-    
-            print(f"Epoch {epoch + 1}, Batch {batch_idx}, Loss: {loss.item()}")
+            if batch_idx %10 ==0:
+                print(f"Epoch {epoch + 1}, Batch {batch_idx}, Loss: {loss.item()}")
     
         avg_loss = total_loss / len(train_loader)
         print(f"Epoch {epoch + 1}, Average Loss: {avg_loss}")
