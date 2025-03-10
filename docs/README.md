@@ -23,18 +23,18 @@ The repository is organized as follows:
 
 To set up the project, follow these steps:
 
-1. **Clone the repository:**
+1. **Clone the repository:**  
 
    ```bash
    git clone https://github.com/Rozhkin-Aleksandr/GLA_realization.git
    cd GLA_realization
-Create a virtual environment (optional but recommended):
+2. **Create a virtual environment (optional but recommended)**:  
 
   ```bash
   python -m venv venv
   source venv/bin/activate # On Windows use venv\Scripts\activate
 ```
-Install the required dependencies:
+3. **Install the required dependencies**:  
 
 
 ```bash
