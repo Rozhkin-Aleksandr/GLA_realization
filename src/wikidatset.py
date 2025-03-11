@@ -1,13 +1,14 @@
 import torch
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader, Dataset
+from config import max_seq_len
 
 class WikiTextDataset(Dataset):
-    def __init__(self, dataset, tokenizer, max_length=64):
+    def __init__(self, dataset, tokenizer, max_length=max_seq_len):
         self.dataset = dataset
         self.tokenizer = tokenizer
         self.max_length = max_length
-        # Фильтрация пустых текстов
+        # Filtering empty texts
         self.data = [item for item in dataset if item['text'].strip()]
 
     def __len__(self):
@@ -19,7 +20,7 @@ class WikiTextDataset(Dataset):
             text,
             return_tensors='pt',
             max_length=self.max_length,
-            padding='max_length',  # Дополнение до max_length
+            padding='max_length',  
             truncation=True
         )
         input_ids = encoding['input_ids'].squeeze(0) 

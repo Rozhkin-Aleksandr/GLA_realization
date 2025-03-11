@@ -3,9 +3,9 @@ import torch.nn as nn
 from transformers import GPT2LMHeadModel
 from gla_mlp import GLAMLP
 from gla_attention import GLAAttention
-
+from config import c
 class GLA(nn.Module):
-    def __init__(self, c=5):
+    def __init__(self, c=c):
         super().__init__()
         gpt2_lmhead = GPT2LMHeadModel.from_pretrained('gpt2')
         self.lm_head = gpt2_lmhead.lm_head
